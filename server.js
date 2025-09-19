@@ -12,7 +12,17 @@ const app = express();
 
 app.use(cookieParser());
 // const allowedOrigin = ["http://localhost:5173"];
-const allowedOrigin = ["https://authentication-mocha.vercel.app/"];
+const allowedOrigins = [
+  "https://authentication-xytt-euqn3er48-priyankathakur060801s-projects.vercel.app",
+  "http://localhost:3000", // keep this for local dev if needed
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
 app.use(cors({ origin: allowedOrigin, credentials: true }));
 
 app.use(express.json());
