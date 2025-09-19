@@ -13,7 +13,7 @@ const app = express();
 app.use(cookieParser());
 // const allowedOrigin = ["http://localhost:5173"];
 const allowedOrigins = [
-  "https://authentication-xytt.vercel.app/",
+  "https://authentication-xytt.vercel.app",
   "http://localhost:3000", // keep this for local dev if needed
 ];
 
