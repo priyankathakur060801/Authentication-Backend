@@ -13,7 +13,7 @@ const app = express();
 app.use(cookieParser());
 // const allowedOrigin = ["http://localhost:5173"];
 const allowedOrigins = [
-  "https://authentication-xytt-euqn3er48-priyankathakur060801s-projects.vercel.app",
+  "https://authentication-xytt-euqn3er48-priyankathakur060801s-projects.vercel.app/",
   "http://localhost:3000", // keep this for local dev if needed
 ];
 
