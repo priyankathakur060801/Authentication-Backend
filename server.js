@@ -11,20 +11,26 @@ dotenv.config();
 const app = express();
 
 app.use(cookieParser());
-// const allowedOrigin = ["http://localhost:5173"];
-// const allowedOrigins = [
-//   "https://authentication-xytt.vercel.app",
-//   "http://localhost:3000", // keep this for local dev if needed
-// ];
+const allowedOrigins = [
+  "http://localhost:3000", // React dev
+  "http://localhost:5173", // Vite dev (if you use Vite)
+  "https://authentication-xytt.vercel.app", // Vercel frontend
+];
 
-// app.use(
-//   cors({
-//     origin: allowedOrigins,
-//     credentials: true,
-//   })
-// );
-app.use(cors());
-// app.use(cors({ origin: allowedOrigin, credentials: true }));
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      // allow requests with no origin (like mobile apps or curl)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      } else {
+        return callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
