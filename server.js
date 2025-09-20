@@ -10,7 +10,6 @@ import UserRouter from "./routes/userRoutes.js";
 dotenv.config();
 const app = express();
 
-app.use(cookieParser());
 const allowedOrigins = [
   "http://localhost:3000", // React dev
   "http://localhost:5173", // Vite dev (if you use Vite)
@@ -31,6 +30,7 @@ app.use(
     credentials: true,
   })
 );
+app.use(cookieParser());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
