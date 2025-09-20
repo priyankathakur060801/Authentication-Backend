@@ -14,7 +14,7 @@ app.use(cookieParser());
 const allowedOrigins = [
   "http://localhost:3000", // React dev
   "http://localhost:5173", // Vite dev (if you use Vite)
-  "https://authentication-xytt.vercel.app", // Vercel frontend
+  "https://authentication-nu-five.vercel.app", // Vercel frontend
 ];
 
 app.use(
