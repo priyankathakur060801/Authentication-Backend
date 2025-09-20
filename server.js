@@ -10,27 +10,7 @@ import UserRouter from "./routes/userRoutes.js";
 dotenv.config();
 const app = express();
 
-const allowedOrigins = [
-  "http://localhost:3000", // React dev
-  "http://localhost:5173", // Vite dev (if you use Vite)
-  "https://authentication-nu-five.vercel.app",
-  "https://authentication-9wbr.onrender.com"// Vercel frontend
-];
-
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      // allow requests with no origin (like mobile apps or curl)
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      } else {
-        return callback(new Error("Not allowed by CORS"));
-      }
-    },
-    credentials: true,
-  })
-);
+app.use(cors());
 app.use(cookieParser());
 
 app.use(express.json());
