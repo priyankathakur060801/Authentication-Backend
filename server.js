@@ -10,8 +10,21 @@ import UserRouter from "./routes/userRoutes.js";
 dotenv.config();
 const app = express();
 
-app.use(cors());
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:3000",
+  "https://auth-frontend-app.vercel.app",
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+);
+
 app.use(cookieParser());
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
