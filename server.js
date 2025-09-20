@@ -13,7 +13,8 @@ const app = express();
 const allowedOrigins = [
   "http://localhost:3000", // React dev
   "http://localhost:5173", // Vite dev (if you use Vite)
-  "https://authentication-nu-five.vercel.app", // Vercel frontend
+  "https://authentication-nu-five.vercel.app",
+  "https://authentication-9wbr.onrender.com"// Vercel frontend
 ];
 
 app.use(
